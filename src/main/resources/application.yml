@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    url: ${ACP_POSTGRES:jdbc:postgresql://localhost:5432/acp?user=postgres&password=postgres}
+
+acp:
+  # Optional, but the spec references ACP_URL_ENDPOINT for the external ILP service
+  url:
+    endpoint: ${ACP_URL_ENDPOINT:}
+  # Optional helper: if present, we use it as the S3 bucket + DynamoDB table name
+  sid: ${ACP_SID:${SID:}}
+  s3:
+    endpoint: ${ACP_S3:http://localhost:4566}
+    region: ${AWS_DEFAULT_REGION:us-east-1}
+    accessKey: ${AWS_ACCESS_KEY_ID:test}
+    secretKey: ${AWS_SECRET_ACCESS_KEY:test}
+
+  dynamodb:
+    endpoint: ${ACP_DYNAMODB:http://localhost:4566}
